@@ -3,7 +3,6 @@
 Dir.glob(".[a-z]*").each do |file_name|
   unless file_name == '.git'
     rm = `rm -rf ~/#{file_name}`
-    ln = `ln -s ~/dotfiles/#{file_name} ~/`
+    ln = `ln -s ~/Projects/dotfiles/dotfiles/#{file_name} ~/`
   end
 end
-build_ct = `cd ~/.vim/ruby/command-t && ruby extconf.rb && make`

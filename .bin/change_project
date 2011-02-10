@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# default values = hottest project!
+rvm="1.8.7"
+project_dir="$HOME/Projects/tracks/tracks"
+
+case "$1" in
+cnz)
+ rvm="1.9.2"
+ project_dir="$HOME/Projects/creativenz/creativenz"
+ ;;
+invoicer)
+ rvm="1.8.7"
+ project_dir="$HOME/Projects/invoicer/invoicer"
+ ;;
+tracks)
+ rvm="1.8.7"
+ project_dir="$HOME/Projects/tracks/tracks"
+esac
+
+rvm $rvm
+cd $project_dir
+
