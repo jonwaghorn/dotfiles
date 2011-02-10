@@ -5,7 +5,7 @@ rvm="1.8.7"
 project_dir="$HOME/Projects/tracks/tracks"
 
 case "$1" in
-cnz)
+cnz|creativenz)
  rvm="1.9.2"
  project_dir="$HOME/Projects/creativenz/creativenz"
  ;;
@@ -16,6 +16,15 @@ invoicer)
 tracks)
  rvm="1.8.7"
  project_dir="$HOME/Projects/tracks/tracks"
+ ;;
+labour|etrac|eTrac)
+ rvm="1.8.7"
+ project_dir="$HOME/Projects/labour/labour/trunk/Labour"
+ ;;
+dot|dotfiles)
+ rvm="default"
+ project_dir="$HOME/Projects/dotfiles/dotfiles"
+ ;;
 esac
 
 rvm $rvm
