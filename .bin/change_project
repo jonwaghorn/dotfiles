@@ -4,7 +4,7 @@
 rvm="1.8.7"
 project_dir="$HOME/Projects/tracks/tracks"
 
-case "$1" in
+case `echo $1 | tr "[A-Z]" "[a-z]"` in
 cnz|creativenz)
  rvm="1.9.2"
  project_dir="$HOME/Projects/creativenz/creativenz"
@@ -17,9 +17,13 @@ tracks)
  rvm="1.8.7"
  project_dir="$HOME/Projects/tracks/tracks"
  ;;
-labour|etrac|eTrac)
+labour|etrac)
  rvm="1.8.7"
  project_dir="$HOME/Projects/labour/labour/trunk/Labour"
+ ;;
+power|powerswitch)
+ rvm="1.8.7"
+ project_dir="$HOME/Projects/consumer/consumer/branches/development/powerswitch/Consumer"
  ;;
 dot|dotfiles)
  rvm="default"
