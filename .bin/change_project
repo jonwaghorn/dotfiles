@@ -25,6 +25,10 @@ power|powerswitch)
  rvm="1.8.7"
  project_dir="$HOME/Projects/consumer/consumer/branches/development/powerswitch/Consumer"
  ;;
+learningconnexion|phoenix)
+ rvm="1.8.7"
+ project_dir="$HOME/Projects/Learning-Connexion/Learning-Connexion"
+ ;;
 dot|dotfiles)
  rvm="default"
  project_dir="$HOME/Projects/dotfiles/dotfiles"

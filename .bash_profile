@@ -35,7 +35,7 @@ PS1="\u@\h(\$(~/.rvm/bin/rvm-prompt v)):\w\n$ "; export PS1
 
 # aliases
 alias h='history'
-alias ls='ls -F'
+alias ls='ls -FG'
 alias la='ls -a'
 alias ll='ls -l'
 alias rm='rm -i'
