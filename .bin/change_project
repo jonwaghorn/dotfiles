@@ -21,9 +21,13 @@ labour|etrac)
  rvm="1.8.7"
  project_dir="$HOME/Projects/labour/labour/trunk/Labour"
  ;;
-power|powerswitch)
+ps|psp|ps-public|powerswitch)
  rvm="1.8.7"
- project_dir="$HOME/Projects/consumer/consumer/branches/development/powerswitch/Consumer"
+ project_dir="$HOME/Projects/consumer-public/ConsumerPublic"
+ ;;
+psa|ps-admin|power-admin|powerswitch-admin)
+ rvm="1.8.7"
+ project_dir="$HOME/Projects/consumer/Consumer"
  ;;
 learningconnexion|phoenix)
  rvm="1.8.7"
