@@ -11,6 +11,11 @@ cnz|creativenz)
  gemset="creativenz"
  project_dir="$HOME/Projects/creativenz/creativenz"
  ;;
+creativehq)
+ rvm="1.8.7"
+ gemset="creativehq"
+ project_dir="$HOME/Projects/creativehq/creativehq"
+ ;;
 invoicer)
  rvm="1.8.7"
  project_dir="$HOME/Projects/invoicer/invoicer"
@@ -27,12 +32,17 @@ labour|etrac)
 ps|psp|ps-public|powerswitch)
  rvm="1.8.7"
  gemset="consumer"
- project_dir="$HOME/Projects/consumer-public/ConsumerPublic"
+ project_dir="$HOME/Projects/powerswitch-public/ConsumerPublic"
  ;;
 psa|ps-admin|power-admin|powerswitch-admin)
  rvm="1.8.7"
  gemset="consumer"
- project_dir="$HOME/Projects/consumer/Consumer"
+ project_dir="$HOME/Projects/powerswitch-admin/Consumer"
+ ;;
+ps-calc|calc|calculator)
+ rvm="1.8.7"
+ gemset="consumer"
+ project_dir="$HOME/Projects/powerswitch-public/PowerSwitchCalculators"
  ;;
 learningconnexion|phoenix)
  rvm="1.8.7"
