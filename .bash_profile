@@ -40,7 +40,7 @@ alias la='ls -a'
 alias ll='ls -l'
 alias rm='rm -i'
 alias dos2unix="perl -pi -e 's/\r\n/\n/;'"
-alias f="find config db app lib test spec features public/stylesheets -name \* | xargs grep $*"
+alias f="find config db app lib test spec features public/stylesheets -name \* | grep -vw svn | xargs grep $*"
 alias gs='git status'
 alias proj='source change_project $*'
 
