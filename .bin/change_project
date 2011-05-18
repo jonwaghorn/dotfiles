@@ -11,6 +11,11 @@ cnz|creativenz)
  gemset="creativenz"
  project_dir="$HOME/Projects/creativenz/creativenz"
  ;;
+aml|drisk|deloitte)
+ rvm="1.8.7"
+ gemset="deloitte"
+ project_dir="$HOME/Projects/deloitte/aml"
+ ;;
 creativehq)
  rvm="1.8.7"
  gemset="creativehq"
@@ -27,22 +32,37 @@ tracks)
 labour|etrac)
  rvm="1.8.7"
  gemset="labour"
- project_dir="$HOME/Projects/labour/labour/trunk/Labour"
+ project_dir="$HOME/Projects/labour/labour"
  ;;
-ps|psp|ps-public|powerswitch)
+consumer)
  rvm="1.8.7"
  gemset="consumer"
- project_dir="$HOME/Projects/powerswitch-public/ConsumerPublic"
+ project_dir="$HOME/Projects/consumer/consumer-public/ConsumerConsumer"
  ;;
-psa|ps-admin|power-admin|powerswitch-admin)
+pspd|psp|ps-public-draft|powerswitch-public-draft)
  rvm="1.8.7"
  gemset="consumer"
- project_dir="$HOME/Projects/powerswitch-admin/Consumer"
+ project_dir="$HOME/Projects/consumer/powerswitch-public-draft/ConsumerPublic"
+ ;;
+psad|psa|ps-admin-draft|powerswitch-admin-draft)
+ rvm="1.8.7"
+ gemset="consumer"
+ project_dir="$HOME/Projects/consumer/powerswitch-admin-draft/Consumer"
+ ;;
+pspp|ps-public-prod|powerswitch-public-prod)
+ rvm="1.8.7"
+ gemset="consumer"
+ project_dir="$HOME/Projects/consumer/powerswitch-public-prod/ConsumerPublic"
+ ;;
+psap|ps-admin-prod|powerswitch-admin-prod)
+ rvm="1.8.7"
+ gemset="consumer"
+ project_dir="$HOME/Projects/consumer/powerswitch-admin-prod/Consumer"
  ;;
 ps-calc|calc|calculator)
  rvm="1.8.7"
  gemset="consumer"
- project_dir="$HOME/Projects/powerswitch-public/PowerSwitchCalculators"
+ project_dir="$HOME/Projects/consumer/calculator/PowerSwitchCalculators"
  ;;
 learningconnexion|phoenix)
  rvm="1.8.7"
@@ -51,7 +71,7 @@ learningconnexion|phoenix)
  ;;
 dot|dotfiles)
  rvm="default"
- project_dir="$HOME/Projects/dotfiles/dotfiles"
+ project_dir="$HOME/Projects/dotfiles"
  ;;
 esac
 

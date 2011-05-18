@@ -6,7 +6,7 @@ PRINTER=LaserJet_4L___Northland; export PRINTER
 
 #stty erase
 
-PATH=/opt/local/bin:/opt/local/sbin:/usr/X11R6/bin:$PATH:~/bin:$HOME/.bin:.; export PATH
+PATH=/usr/local/sbin:/usr/X11R6/bin:$PATH:~/bin:$HOME/.bin:.; export PATH
 
 # MySql
 #PATH=/usr/local/mysql/bin:$PATH; export PATH
@@ -42,7 +42,7 @@ alias rm='rm -i'
 alias dos2unix="perl -pi -e 's/\r\n/\n/;'"
 alias f="find config db app lib test spec features public/stylesheets -name \* | grep -vw svn | xargs grep $*"
 alias gs='git status'
-alias proj='source change_project $*'
+alias p='source change_project $*'
 
 
 # git
