@@ -34,36 +34,38 @@ labour|etrac)
  gemset="labour"
  project_dir="$HOME/Projects/labour/labour"
  ;;
-consumer)
+
+cd|consumer-draft|psp|pspd|powerswitch-draft)
  rvm="1.8.7"
  gemset="consumer"
- project_dir="$HOME/Projects/consumer/consumer-public/ConsumerConsumer"
+ project_dir="$HOME/Projects/consumer/consumer_public_draft/ConsumerPublic"
  ;;
-pspd|psp|ps-public-draft|powerswitch-public-draft)
+ca|cad|consumer-admin-draft|psa|psad|powerswitch-admin-draft)
  rvm="1.8.7"
  gemset="consumer"
- project_dir="$HOME/Projects/consumer/powerswitch-public-draft/ConsumerPublic"
+ project_dir="$HOME/Projects/consumer/consumer_admin_draft/Consumer"
  ;;
-psad|psa|ps-admin-draft|powerswitch-admin-draft)
+ps|pspp|powerswitch-public-prod)
  rvm="1.8.7"
  gemset="consumer"
- project_dir="$HOME/Projects/consumer/powerswitch-admin-draft/Consumer"
+ project_dir="$HOME/Projects/consumer/powerswitch_public/ConsumerPublic"
  ;;
-pspp|ps-public-prod|powerswitch-public-prod)
+cpa|consumer-prod-admin|psap|powerswitch-admin-prod)
  rvm="1.8.7"
  gemset="consumer"
- project_dir="$HOME/Projects/consumer/powerswitch-public-prod/ConsumerPublic"
+ project_dir="$HOME/Projects/consumer/consumer_admin/Consumer"
  ;;
-psap|ps-admin-prod|powerswitch-admin-prod)
+cp|consumer)
  rvm="1.8.7"
  gemset="consumer"
- project_dir="$HOME/Projects/consumer/powerswitch-admin-prod/Consumer"
+ project_dir="$HOME/Projects/consumer/consumer_public/ConsumerConsumer"
  ;;
 ps-calc|calc|calculator)
  rvm="1.8.7"
  gemset="consumer"
  project_dir="$HOME/Projects/consumer/calculator/PowerSwitchCalculators"
  ;;
+
 learningconnexion|phoenix)
  rvm="1.8.7"
  gemset="phoenix"
@@ -72,6 +74,11 @@ learningconnexion|phoenix)
 dot|dotfiles)
  rvm="default"
  project_dir="$HOME/Projects/dotfiles"
+ ;;
+sponsafier|speedracer)
+ rvm="1.8.7"
+ gemset="sponsafier"
+ project_dir="$HOME/Projects/sponsafier/speedracer"
  ;;
 esac
 
