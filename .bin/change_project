@@ -30,9 +30,12 @@ tracks)
  project_dir="$HOME/Projects/tracks/tracks"
  ;;
 labour|etrac)
- rvm="1.8.7"
- gemset="labour"
+ #rvm="1.8.7"
+ #gemset="labour"
  project_dir="$HOME/Projects/labour/labour"
+ ;;
+cpc)
+ project_dir="$HOME/Projects/cpc/crime-prevention-community"
  ;;
 redmine|tracker)
  rvm="1.8.7"
@@ -65,10 +68,15 @@ cp|consumer)
  gemset="consumer"
  project_dir="$HOME/Projects/consumer/consumer_public/ConsumerConsumer"
  ;;
-ps-calc|calc|calculator)
+calc|calculator|calc_draft|calculator_draft)
  rvm="1.8.7"
  gemset="consumer"
- project_dir="$HOME/Projects/consumer/calculator/PowerSwitchCalculators"
+ project_dir="$HOME/Projects/consumer/calculator_draft/PowerSwitchCalculators"
+ ;;
+calc_live|calculator_live)
+ rvm="1.8.7"
+ gemset="consumer"
+ project_dir="$HOME/Projects/consumer/calculator_live/PowerSwitchCalculators"
  ;;
 
 learningconnexion|phoenix|tlc)
@@ -90,8 +98,8 @@ esac
 if [[ -n $gemset ]]; then
  rvm "${rvm}@${gemset}"
  echo "Using gemset: $gemset"
-else
- rvm $rvm
+#else
+# rvm $rvm
 fi
 cd $project_dir
 
