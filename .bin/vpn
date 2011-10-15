@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ "$1" = "start" ]; then
-	sudo vpnc /Users/jon/.vpncrc.conf
+if [ "$1" = "start" -o "$1" = "connect" -o "$1" = "c" ]; then
+	sudo vpnc --dpd-idle 0 /Users/jon/.vpncrc.conf
 fi
 
-if [ "$1" = "stop" ]; then
+if [ "$1" = "stop" -o "$1" = "disconnect" -o "$1" = "d" ]; then
 	sudo vpnc-disconnect
 fi
