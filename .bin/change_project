@@ -7,8 +7,8 @@ project_dir="$HOME/Projects/creativenz/creativenz"
 
 case `echo $1 | tr "[A-Z]" "[a-z]"` in
 cnz|creativenz)
- rvm="1.9.2"
- gemset="creativenz"
+ #rvm="1.9.2"
+ #gemset="creativenz"
  project_dir="$HOME/Projects/creativenz/creativenz"
  ;;
 aml|drisk|deloitte)
@@ -30,9 +30,12 @@ tracks)
  project_dir="$HOME/Projects/tracks/tracks"
  ;;
 labour|etrac)
- rvm="1.8.7"
- gemset="labour"
+ #rvm="1.8.7"
+ #gemset="labour"
  project_dir="$HOME/Projects/labour/labour"
+ ;;
+cpc)
+ project_dir="$HOME/Projects/cpc/crime-prevention-community"
  ;;
 redmine|tracker)
  rvm="1.8.7"
@@ -40,35 +43,29 @@ redmine|tracker)
  project_dir="$HOME/Projects/tracker/tracker"
  ;;
 
-cd|consumer-draft|psp|pspd|powerswitch-draft)
- rvm="1.8.7"
- gemset="consumer"
+#
+# Consumer
+#
+draft.consumer|cd|consumer-draft)
  project_dir="$HOME/Projects/consumer/consumer_public_draft/ConsumerPublic"
  ;;
-ca|cad|consumer-admin-draft|psa|psad|powerswitch-admin-draft)
- rvm="1.8.7"
- gemset="consumer"
+draft-admin.consumer|ca|cad|consumer-admin-draft)
  project_dir="$HOME/Projects/consumer/consumer_admin_draft/Consumer"
  ;;
-ps|pspp|powerswitch-public-prod)
- rvm="1.8.7"
- gemset="consumer"
+powerswitch|ps|powerswitch-public)
  project_dir="$HOME/Projects/consumer/powerswitch_public/ConsumerPublic"
  ;;
-cpa|consumer-prod-admin|psap|powerswitch-admin-prod)
- rvm="1.8.7"
- gemset="consumer"
+www-admin.consumer|cpa|consumer-prod-admin)
  project_dir="$HOME/Projects/consumer/consumer_admin/Consumer"
  ;;
-cp|consumer)
- rvm="1.8.7"
- gemset="consumer"
+consumer)
  project_dir="$HOME/Projects/consumer/consumer_public/ConsumerConsumer"
  ;;
-ps-calc|calc|calculator)
- rvm="1.8.7"
- gemset="consumer"
- project_dir="$HOME/Projects/consumer/calculator/PowerSwitchCalculators"
+calc|calculator|calc_draft|calculator_draft)
+ project_dir="$HOME/Projects/consumer/calculator_draft/PowerSwitchCalculators"
+ ;;
+calc_live|calculator_live)
+ project_dir="$HOME/Projects/consumer/calculator_live/PowerSwitchCalculators"
  ;;
 
 learningconnexion|phoenix|tlc)
@@ -85,13 +82,18 @@ sponsafier|speedracer)
  gemset="sponsafier"
  project_dir="$HOME/Projects/sponsafier/speedracer"
  ;;
+
+ham|hamilton|hamiltonwaikat|hamiltonwaikato)
+  project_dir="$HOME/Projects/hamiltonwaikato/hamiltonwaikat"
+  ;;
+
 esac
 
 if [[ -n $gemset ]]; then
  rvm "${rvm}@${gemset}"
  echo "Using gemset: $gemset"
-else
- rvm $rvm
+#else
+# rvm $rvm
 fi
 cd $project_dir
 

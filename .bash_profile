@@ -30,7 +30,7 @@ ARCHFLAGS='-arch x86_64'; export ARCHFLAGS
 
 # Set command prompt
 #PS1="\u@\h:\w\n$ "; export PS1
-PS1="\u@\h(\$(~/.rvm/bin/rvm-prompt v)):\w\n$ "; export PS1
+PS1="\u@\h(\$(~/.rvm/bin/rvm-prompt v g)):\w\n$ "; export PS1
 
 
 # aliases
