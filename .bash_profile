@@ -6,7 +6,7 @@ PRINTER=LaserJet_4L___Northland; export PRINTER
 
 #stty erase
 
-PATH=/usr/local/sbin:/usr/X11R6/bin:$PATH:~/bin:$HOME/.bin:.; export PATH
+PATH=/opt/local/bin:/opt/local/sbin:/usr/local/sbin:/usr/X11R6/bin:$PATH:~/bin:$HOME/.bin:.; export PATH
 
 # MySql
 #PATH=/usr/local/mysql/bin:$PATH; export PATH
