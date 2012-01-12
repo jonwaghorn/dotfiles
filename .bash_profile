@@ -52,3 +52,6 @@ export MANPATH=/usr/local/git/man:$MANPATH
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
+export CONSUMER_PUBLIC_PATH=$HOME/Projects/consumer/consumer_public_draft/ConsumerPublic
+export CONSUMER_ADMIN_PATH=$HOME/Projects/consumer/consumer_admin_draft/ConsumerAdmin
+

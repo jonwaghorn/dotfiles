@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+START_RED = "\033[1;41m"
+STOP = "\033[0m"
+DIFF_PATHS = ["/app/models/", "/app/mixins", "/public/stylesheets/site"]
+
+if `echo $CONSUMER_PUBLIC_PATH` == "\n"
+  puts "#{START_RED}Please define $CONSUMER_PUBLIC_PATH in your environment.#{STOP}"
+  exit 1
+end
+
+if `echo $CONSUMER_ADMIN_PATH` == "\n"
+  puts "#{START_RED}Please define $CONSUMER_ADMIN_PATH in your environment.#{STOP}"
+  exit 1
+end
+
+DIFF_PATHS.each do |path|
+  if `diff -wrq $CONSUMER_PUBLIC_PATH#{path} $CONSUMER_ADMIN_PATH#{path}`[/^Only in.+.DS_Store\n$|^\n$|^$/]
+    # do nothing?
+  else
+    puts "#{START_RED} WARNING #{STOP} You need to manually sync these directories #{`echo $CONSUMER_PUBLIC_PATH`.gsub("\n","")}#{path} and #{`echo $CONSUMER_ADMIN_PATH`.gsub("\n","")}#{path}"
+    puts `diff -wrq $CONSUMER_PUBLIC_PATH#{path} $CONSUMER_ADMIN_PATH#{path}`
+    # puts "Would you link to merge these changes? (Y/n)"
+    # if gets.downcase.include?("y")
+#      `opendiff $CONSUMER_PUBLIC_PATH#{path} $CONSUMER_ADMIN_PATH#{path} -merge #{`pwd`.gsub("\n","")}#{path}`
+    # end
+    # exit 1
+  end
+end
+puts "\n"
+
