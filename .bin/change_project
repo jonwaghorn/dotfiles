@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# default values = hottest project!
+# default values == hottest project!
 rvm="1.9.2"
 gemset=""
 project_dir="$HOME/Projects/creativenz/creativenz"
@@ -10,6 +10,9 @@ cnz|creativenz)
  #rvm="1.9.2"
  #gemset="creativenz"
  project_dir="$HOME/Projects/creativenz/creativenz"
+ ;;
+3ms|threems)
+ project_dir="$HOME/Projects/threems/threems"
  ;;
 aml|drisk|deloitte)
  rvm="1.8.7"
@@ -42,30 +45,38 @@ redmine|tracker)
  gemset="tracker"
  project_dir="$HOME/Projects/tracker/tracker"
  ;;
+canvas)
+ rvm="1.9.2"
+ gemset="canvas"
+ project_dir="$HOME/Projects/horsepower/canvas"
+ ;;
 
 #
 # Consumer
 #
-draft.consumer|cd|consumer-draft)
+draft.consumer|consumer_public|consumer_public_draft)
  project_dir="$HOME/Projects/consumer/consumer_public_draft/ConsumerPublic"
  ;;
-draft-admin.consumer|ca|cad|consumer-admin-draft)
- project_dir="$HOME/Projects/consumer/consumer_admin_draft/Consumer"
+draft-admin.consumer|consumer_admin|consumer_admin_draft)
+ project_dir="$HOME/Projects/consumer/consumer_admin_draft/ConsumerAdmin"
  ;;
-powerswitch|ps|powerswitch-public)
- project_dir="$HOME/Projects/consumer/powerswitch_public/ConsumerPublic"
+www.consumer|consumer_live|consumer_public_live)
+ project_dir="$HOME/Projects/consumer/consumer_public_live/ConsumerPublic"
  ;;
-www-admin.consumer|cpa|consumer-prod-admin)
- project_dir="$HOME/Projects/consumer/consumer_admin/Consumer"
+www-admin.consumer|cpa|consumer_admin_live)
+ project_dir="$HOME/Projects/consumer/consumer_admin_live/ConsumerAdmin"
  ;;
-consumer)
- project_dir="$HOME/Projects/consumer/consumer_public/ConsumerConsumer"
+www.powerswitch|powerswitch|powerswitch_live)
+ project_dir="$HOME/Projects/consumer/powerswitch/ConsumerPublic"
  ;;
-calc|calculator|calc_draft|calculator_draft)
- project_dir="$HOME/Projects/consumer/calculator_draft/PowerSwitchCalculators"
+www.telme|telme|telme_live)
+ project_dir="$HOME/Projects/consumer/telme/ConsumerPublic"
+ ;;
+calc_draft|calculator_draft|calc|calculator)
+ project_dir="$HOME/Projects/consumer/calculator_draft/PowerswitchCalculator"
  ;;
 calc_live|calculator_live)
- project_dir="$HOME/Projects/consumer/calculator_live/PowerSwitchCalculators"
+ project_dir="$HOME/Projects/consumer/calculator_live/PowerswitchCalculator"
  ;;
 
 learningconnexion|phoenix|tlc)
