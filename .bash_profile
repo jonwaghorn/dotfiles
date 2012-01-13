@@ -6,16 +6,14 @@ PRINTER=LaserJet_4L___Northland; export PRINTER
 
 #stty erase
 
-PATH=/opt/local/bin:/opt/local/sbin:/usr/local/sbin:/usr/X11R6/bin:$PATH:~/bin:$HOME/.bin:.; export PATH
+PATH=/usr/local/bin:/usr/local/sbin:/usr/X11R6/bin:$PATH:~/bin:$HOME/.bin:.; export PATH
 
 # MySql
 #PATH=/usr/local/mysql/bin:$PATH; export PATH
 #PATH=/opt/local/lib/mysql5/bin:$PATH; export PATH
 
 # Postgres
-PATH=/opt/local/lib/postgresql84/bin:$PATH; export PATH
 ARCHFLAGS='-arch x86_64'; export ARCHFLAGS
-
 
 # ant
 #ANT_HOME=/usr/local/ant; export ANT_HOME
@@ -43,11 +41,6 @@ alias dos2unix="perl -pi -e 's/\r\n/\n/;'"
 alias f="find config db app lib test spec features public/stylesheets -name \* | grep -vw svn | xargs grep $*"
 alias gs='git status'
 alias p='source change_project $*'
-
-
-# git
-export PATH=/usr/local/git/bin:$PATH
-export MANPATH=/usr/local/git/man:$MANPATH
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
