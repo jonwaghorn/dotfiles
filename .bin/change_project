@@ -11,8 +11,17 @@ cnz|creativenz)
  #gemset="creativenz"
  project_dir="$HOME/Projects/creativenz/creativenz"
  ;;
+ewrb)
+ project_dir="$HOME/Projects/ewrb/ewrb"
+ ;;
+latter)
+ project_dir="$HOME/Projects/latter/Latter"
+ ;;
 3ms|threems)
  project_dir="$HOME/Projects/threems/threems"
+ ;;
+mysportsresults|msr)
+ project_dir="$HOME/Projects/mysportsresults/mysportsresults"
  ;;
 aml|drisk|deloitte)
  rvm="1.8.7"
@@ -50,6 +59,11 @@ canvas)
  gemset="canvas"
  project_dir="$HOME/Projects/horsepower/canvas"
  ;;
+msd|notes|huddle|dce)
+ #rvm="1.9.3"
+ #gemset="dce_notes"
+ project_dir="$HOME/Projects/msd/huddle"
+ ;;
 
 #
 # Consumer
@@ -80,8 +94,8 @@ calc_live|calculator_live)
  ;;
 
 learningconnexion|phoenix|tlc)
- rvm="1.8.7"
- gemset="phoenix"
+ #rvm="1.8.7"
+ #gemset="phoenix"
  project_dir="$HOME/Projects/tlc/Learning-Connexion"
  ;;
 dot|dotfiles)

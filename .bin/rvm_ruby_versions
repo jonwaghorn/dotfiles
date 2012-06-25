@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Run COMMAND and check changes since last time. Email any changes to EMAIL_RECIPIENT.
+
+
+# Config
+
+COMMAND="rvm list known"
+EMAIL_RECIPIENT="jon@3months.com"
+EMAIL_SUBJECT="Changes to rvm know versions"
+OLD_FILE=".`basename $0`.old"
+NEW_FILE=".`basename $0`.new"
+
+# Generic bit
+
+cd $HOME/.bin
+$COMMAND > $NEW_FILE
+x=`diff $NEW_FILE $OLD_FILE | wc -l`
+if [ $x -gt 0 ]; then
+  echo "new <
+old >
+
+`diff $NEW_FILE $OLD_FILE`" | mail -s "$EMAIL_SUBJECT" $EMAIL_RECIPIENT
+  cp -p $NEW_FILE $OLD_FILE
+fi

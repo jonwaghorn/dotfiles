@@ -25,7 +25,8 @@ DIFF_PATHS.each do |path|
 #      `opendiff $CONSUMER_PUBLIC_PATH#{path} $CONSUMER_ADMIN_PATH#{path} -merge #{`pwd`.gsub("\n","")}#{path}`
     # end
     # exit 1
+#puts "\n"
   end
 end
-puts "\n"
+
 
