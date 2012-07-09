@@ -1,54 +1,34 @@
 #!/bin/sh
-#
-# MacPorts generated daemondo support script
-#
 
-#
-# Init
-#
-prefix=/opt/local
-PGCTL=/opt/local/lib/postgresql84/bin/pg_ctl
+LOG_FILE='/usr/local/var/postgres/logfile'
+DATA_DIR='/usr/local/var/postgres'
 
-#
-# Start
-#
 Start()
 {
-	su postgres -c "${PGCTL} -D ${POSTGRESQL84DATA:=/opt/local/var/db/postgresql84/defaultdb} start -l /opt/local/var/log/postgresql84/postgres.log"
+	pg_ctl -D $DATA_DIR -l $LOG_FILE start
 }
 
-#
-# Stop
-#
 Stop()
 {
-	su postgres -c "${PGCTL} -D ${POSTGRESQL84DATA:=/opt/local/var/db/postgresql84/defaultdb} stop -s -m fast"
+	pg_ctl -D $DATA_DIR -l $LOG_FILE stop
 }
 
-#
-# Restart
-#
 Restart()
 {
 	Stop
 	Start
 }
 
-#
-# Run
-#
-Run()
+Status()
 {
+  pg_ctl -D $DATA_DIR status
+}
+
 case $1 in
   start  ) Start   ;;
   stop   ) Stop    ;;
+  status ) Status  ;;
   restart) Restart ;;
-  *      ) echo "$0: unknown argument: $1";;
+  *      ) echo "Usage: `basename $0` {start|stop|restart|status}";;
+
 esac
-}
-
-#
-# Run a phase based on the selector
-#
-Run $1
-

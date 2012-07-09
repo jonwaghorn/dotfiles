@@ -1,0 +1,87 @@
+#!/bin/bash
+
+RUNNING="running"
+STOPPED="stopped"
+RUNNING_MESSAGE="\033[1;42m RUNNING \033[0m"
+STOPPED_MESSAGE="\033[1;41m STOPPED \033[0m"
+
+POSTGRES_NOT_RUNNING="pg_ctl: no server running"
+MYSQL_NOT_RUNNING=" ERROR! MySQL is not running"
+
+check_status()
+{
+  if [[ `pgsql.server status` == $POSTGRES_NOT_RUNNING ]]; then
+    pg_status=$STOPPED
+  else
+    pg_status=$RUNNING
+  fi
+
+  if [[ `mysql.server status` == $MYSQL_NOT_RUNNING ]]; then
+    mysql_status=$STOPPED
+  else
+    mysql_status=$RUNNING
+  fi
+}
+
+postgres_message()
+{
+  if [[ $pg_status == $RUNNING ]]; then
+    echo -e $RUNNING_MESSAGE
+  else
+    echo -e $STOPPED_MESSAGE
+  fi
+}
+
+mysql_message()
+{
+  if [[ $mysql_status == $RUNNING ]]; then
+    echo -e $RUNNING_MESSAGE
+  else
+    echo -e $STOPPED_MESSAGE
+  fi
+}
+
+db_status()
+{
+  check_status
+  echo -e "  postgres is `postgres_message`"
+  echo -e "  mysql    is `mysql_message`"
+}
+
+echo "Database server status:"
+db_status
+
+echo ""
+
+if [[ $pg_status == $STOPPED ]]; then
+  echo "  1 - start postgres server"
+else
+  echo "  1 - stop postgres server"
+fi
+
+if [[ $mysql_status == $STOPPED ]]; then
+  echo "  2 - start mysql server"
+else
+  echo "  2 - stop mysql server"
+fi
+
+echo -n "> "
+read opt
+
+if [[ $opt == 1 ]]; then
+  if [[ $pg_status == $STOPPED ]]; then
+    pgsql.server start
+  else
+    pgsql.server stop
+  fi
+fi
+
+if [[ $opt == 2 ]]; then
+  if [[ $mysql_status == $STOPPED ]]; then
+    mysql.server start
+  else
+    mysql.server stop
+  fi
+fi
+
+db_status
