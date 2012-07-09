@@ -68,29 +68,29 @@ msd|notes|huddle|dce)
 #
 # Consumer
 #
-draft.consumer|consumer_public|consumer_public_draft)
- project_dir="$HOME/Projects/consumer/consumer_public_draft/ConsumerPublic"
- ;;
-draft-admin.consumer|consumer_admin|consumer_admin_draft)
+consumer_admin_draft|draft-admin.consumer|consumer_admin)
  project_dir="$HOME/Projects/consumer/consumer_admin_draft/ConsumerAdmin"
  ;;
-www.consumer|consumer_live|consumer_public_live)
- project_dir="$HOME/Projects/consumer/consumer_public_live/ConsumerPublic"
+consumer_public_draft|draft.consumer|consumer_public)
+ project_dir="$HOME/Projects/consumer/consumer_public_draft/ConsumerPublic"
  ;;
-www-admin.consumer|cpa|consumer_admin_live)
- project_dir="$HOME/Projects/consumer/consumer_admin_live/ConsumerAdmin"
+consumer_admin_production|www-admin.consumer|cpa)
+ project_dir="$HOME/Projects/consumer/consumer_admin_production/ConsumerAdmin"
  ;;
-www.powerswitch|powerswitch|powerswitch_live)
+consumer_public_production|www.consumer|consumer_production)
+ project_dir="$HOME/Projects/consumer/consumer_public_production/ConsumerPublic"
+ ;;
+powerswitch_production|www.powerswitch|powerswitch)
  project_dir="$HOME/Projects/consumer/powerswitch/ConsumerPublic"
  ;;
-www.telme|telme|telme_live)
+telme_production|www.telme|telme)
  project_dir="$HOME/Projects/consumer/telme/ConsumerPublic"
  ;;
 calc_draft|calculator_draft|calc|calculator)
  project_dir="$HOME/Projects/consumer/calculator_draft/PowerswitchCalculator"
  ;;
-calc_live|calculator_live)
- project_dir="$HOME/Projects/consumer/calculator_live/PowerswitchCalculator"
+calc_production|calc_prod|calculator_production|calculator_prod)
+ project_dir="$HOME/Projects/consumer/calculator_production/PowerswitchCalculator"
  ;;
 
 learningconnexion|phoenix|tlc)
