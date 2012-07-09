@@ -1,3 +1,4 @@
 .bin/.rvm_ruby_versions.new
 .bin/.rvm_ruby_versions.old
+.bin/mate
 
