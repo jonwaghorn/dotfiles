@@ -21,6 +21,12 @@ check_status()
   else
     mysql_status=$RUNNING
   fi
+
+  if [[ `ps -elf | grep memcached | grep -v 'grep memcached' | wc -l` == '       1' ]]; then
+    memcached_status=$RUNNING
+  else
+    memcached_status=$STOPPED
+  fi
 }
 
 postgres_message()
@@ -41,16 +47,26 @@ mysql_message()
   fi
 }
 
-db_status()
+memcached_message()
 {
-  check_status
-  echo -e "  postgres is `postgres_message`"
-  echo -e "  mysql    is `mysql_message`"
+  if [[ $memcached_status == $RUNNING ]]; then
+    echo -e $RUNNING_MESSAGE
+  else
+    echo -e $STOPPED_MESSAGE
+  fi
 }
 
-echo "Database server status:"
-db_status
+show_status()
+{
+  check_status
+  echo -e "  postgres  is `postgres_message`"
+  echo -e "  mysql     is `mysql_message`"
+  echo -e "  memcached is `memcached_message`"
+}
 
+echo "Daemons status:"
+echo ""
+show_status
 echo ""
 
 if [[ $pg_status == $STOPPED ]]; then
@@ -65,6 +81,13 @@ else
   echo "  2 - stop mysql server"
 fi
 
+if [[ $memcached_status == $STOPPED ]]; then
+  echo "  3 - start memcached server"
+else
+  echo "  3 - stop memcached server"
+fi
+
+echo ""
 echo -n "> "
 read opt
 
@@ -74,6 +97,7 @@ if [[ $opt == 1 ]]; then
   else
     pgsql.server stop
   fi
+  show_status
 fi
 
 if [[ $opt == 2 ]]; then
@@ -82,6 +106,15 @@ if [[ $opt == 2 ]]; then
   else
     mysql.server stop
   fi
+  show_status
 fi
 
-db_status
+if [[ $opt == 3 ]]; then
+  if [[ $memcached_status == $STOPPED ]]; then
+    memcached -d
+  else
+    killall memcached
+  fi
+  show_status
+fi
+
