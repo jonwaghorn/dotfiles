@@ -97,6 +97,7 @@ if [[ $opt == 1 ]]; then
   else
     pgsql.server stop
   fi
+  sleep 1
   show_status
 fi
 
@@ -106,6 +107,7 @@ if [[ $opt == 2 ]]; then
   else
     mysql.server stop
   fi
+  sleep 1
   show_status
 fi
 
@@ -115,6 +117,7 @@ if [[ $opt == 3 ]]; then
   else
     killall memcached
   fi
+  sleep 1
   show_status
 fi
 
