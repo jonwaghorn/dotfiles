@@ -1,115 +1,121 @@
 #!/usr/bin/env bash
 
+project_base_dir="$HOME/Projects"
+
 # default values == hottest project!
 rvm="1.9.2"
 gemset=""
-project_dir="$HOME/Projects/creativenz/creativenz"
+project_dir="$project_base_dir/creativenz/creativenz"
 
 case `echo $1 | tr "[A-Z]" "[a-z]"` in
 cnz|creativenz)
  #rvm="1.9.2"
  #gemset="creativenz"
- project_dir="$HOME/Projects/creativenz/creativenz"
+ project_dir="$project_base_dir/creativenz/creativenz"
  ;;
 ewrb)
- project_dir="$HOME/Projects/ewrb/ewrb"
+ project_dir="$project_base_dir/ewrb/ewrb"
+ ;;
+ombudsman|ombudsmen)
+ project_dir="$project_base_dir/ombudsmen/ombudsmen"
  ;;
 latter)
- project_dir="$HOME/Projects/latter/Latter"
+ project_dir="$project_base_dir/latter/Latter"
+ ;;
+cheekymonkey|cheeky|monkey|cm)
+ project_dir="$project_base_dir/cheekymonkey/cheekymonkey.co.nz"
  ;;
 3ms|threems)
- project_dir="$HOME/Projects/threems/threems"
+ project_dir="$project_base_dir/threems/threems"
  ;;
 mysportsresults|msr)
- project_dir="$HOME/Projects/mysportsresults/mysportsresults"
+ project_dir="$project_base_dir/mysportsresults/mysportsresults"
  ;;
 aml|drisk|deloitte)
  rvm="1.8.7"
  gemset="deloitte"
- project_dir="$HOME/Projects/deloitte/aml"
+ project_dir="$project_base_dir/deloitte/aml"
  ;;
 creativehq)
  rvm="1.8.7"
  gemset="creativehq"
- project_dir="$HOME/Projects/creativehq/creativehq"
+ project_dir="$project_base_dir/creativehq/creativehq"
  ;;
 invoicer)
  rvm="1.8.7"
- project_dir="$HOME/Projects/invoicer/invoicer"
+ project_dir="$project_base_dir/invoicer/invoicer"
  ;;
 tracks)
  rvm="1.8.7"
- project_dir="$HOME/Projects/tracks/tracks"
+ project_dir="$project_base_dir/tracks/tracks"
  ;;
 labour|etrac)
  #rvm="1.8.7"
  #gemset="labour"
- project_dir="$HOME/Projects/labour/labour"
+ project_dir="$project_base_dir/labour/labour"
  ;;
 cpc)
- project_dir="$HOME/Projects/cpc/crime-prevention-community"
+ project_dir="$project_base_dir/cpc/crime-prevention-community"
  ;;
 redmine|tracker)
  rvm="1.8.7"
  gemset="tracker"
- project_dir="$HOME/Projects/tracker/tracker"
+ project_dir="$project_base_dir/tracker/tracker"
  ;;
-canvas)
- rvm="1.9.2"
- gemset="canvas"
- project_dir="$HOME/Projects/horsepower/canvas"
+horse|horsepower)
+ project_dir="$project_base_dir/horse/horse-power"
  ;;
 msd|notes|huddle|dce)
  #rvm="1.9.3"
  #gemset="dce_notes"
- project_dir="$HOME/Projects/msd/huddle"
+ project_dir="$project_base_dir/msd/huddle"
  ;;
 
 #
 # Consumer
 #
 consumer_admin_draft|draft-admin.consumer|consumer_admin)
- project_dir="$HOME/Projects/consumer/consumer_admin_draft/ConsumerAdmin"
+ project_dir="$project_base_dir/consumer/consumer_admin_draft/ConsumerAdmin"
  ;;
 consumer_public_draft|draft.consumer|consumer_public)
- project_dir="$HOME/Projects/consumer/consumer_public_draft/ConsumerPublic"
+ project_dir="$project_base_dir/consumer/consumer_public_draft/ConsumerPublic"
  ;;
 consumer_admin_production|www-admin.consumer|cpa)
- project_dir="$HOME/Projects/consumer/consumer_admin_production/ConsumerAdmin"
+ project_dir="$project_base_dir/consumer/consumer_admin_production/ConsumerAdmin"
  ;;
 consumer_public_production|www.consumer|consumer_production)
- project_dir="$HOME/Projects/consumer/consumer_public_production/ConsumerPublic"
+ project_dir="$project_base_dir/consumer/consumer_public_production/ConsumerPublic"
  ;;
 powerswitch_production|www.powerswitch|powerswitch)
- project_dir="$HOME/Projects/consumer/powerswitch/ConsumerPublic"
+ project_dir="$project_base_dir/consumer/powerswitch/ConsumerPublic"
  ;;
 telme_production|www.telme|telme)
- project_dir="$HOME/Projects/consumer/telme/ConsumerPublic"
+ project_dir="$project_base_dir/consumer/telme/ConsumerPublic"
  ;;
 calc_draft|calculator_draft|calc|calculator)
- project_dir="$HOME/Projects/consumer/calculator_draft/PowerswitchCalculator"
+ project_dir="$project_base_dir/consumer/calculator_draft/PowerswitchCalculator"
  ;;
 calc_production|calc_prod|calculator_production|calculator_prod)
- project_dir="$HOME/Projects/consumer/calculator_production/PowerswitchCalculator"
+ project_dir="$project_base_dir/consumer/calculator_production/PowerswitchCalculator"
  ;;
 
 learningconnexion|phoenix|tlc)
  #rvm="1.8.7"
  #gemset="phoenix"
- project_dir="$HOME/Projects/tlc/Learning-Connexion"
+ project_dir="$project_base_dir/tlc/Learning-Connexion"
  ;;
 dot|dotfiles)
  rvm="default"
- project_dir="$HOME/Projects/dotfiles"
+ project_dir="$project_base_dir/dotfiles"
  ;;
 sponsafier|speedracer)
  rvm="1.8.7"
  gemset="sponsafier"
- project_dir="$HOME/Projects/sponsafier/speedracer"
+ project_dir="$project_base_dir/sponsafier/speedracer"
  ;;
 
 ham|hamilton|hamiltonwaikat|hamiltonwaikato)
-  project_dir="$HOME/Projects/hamiltonwaikato/hamiltonwaikat"
+  project_dir="$project_base_dir/hamiltonwaikato/hamiltonwaikat"
   ;;
 
 esac
