@@ -2,129 +2,126 @@
 
 project_base_dir="$HOME/Projects"
 
-# default values == hottest project!
-rvm="1.9.2"
-gemset=""
-project_dir="$project_base_dir/creativenz/creativenz"
+personal="$project_base_dir"
+three_months="$project_base_dir/3months"
+
+# default values == hottest project
+project_dir="$three_months/consumer/mahout/consumer"
 
 case `echo $1 | tr "[A-Z]" "[a-z]"` in
-cnz|creativenz)
- #rvm="1.9.2"
- #gemset="creativenz"
- project_dir="$project_base_dir/creativenz/creativenz"
- ;;
-ewrb)
- project_dir="$project_base_dir/ewrb/ewrb"
- ;;
-ombudsman|ombudsmen)
- project_dir="$project_base_dir/ombudsmen/ombudsmen"
- ;;
-latter)
- project_dir="$project_base_dir/latter/Latter"
- ;;
-cheekymonkey|cheeky|monkey|cm)
- project_dir="$project_base_dir/cheekymonkey/cheekymonkey.co.nz"
- ;;
-3ms|threems)
- project_dir="$project_base_dir/threems/threems"
- ;;
-mysportsresults|msr)
- project_dir="$project_base_dir/mysportsresults/mysportsresults"
- ;;
-aml|drisk|deloitte)
- rvm="1.8.7"
- gemset="deloitte"
- project_dir="$project_base_dir/deloitte/aml"
- ;;
-creativehq)
- rvm="1.8.7"
- gemset="creativehq"
- project_dir="$project_base_dir/creativehq/creativehq"
- ;;
-invoicer)
- rvm="1.8.7"
- project_dir="$project_base_dir/invoicer/invoicer"
- ;;
-tracks)
- rvm="1.8.7"
- project_dir="$project_base_dir/tracks/tracks"
- ;;
-labour|etrac)
- #rvm="1.8.7"
- #gemset="labour"
- project_dir="$project_base_dir/labour/labour"
- ;;
-cpc)
- project_dir="$project_base_dir/cpc/crime-prevention-community"
- ;;
-redmine|tracker)
- rvm="1.8.7"
- gemset="tracker"
- project_dir="$project_base_dir/tracker/tracker"
- ;;
-horse|horsepower)
- project_dir="$project_base_dir/horse/horse-power"
- ;;
-msd|notes|huddle|dce)
- #rvm="1.9.3"
- #gemset="dce_notes"
- project_dir="$project_base_dir/msd/huddle"
- ;;
-
-#
-# Consumer
-#
-consumer_admin_draft|draft-admin.consumer|consumer_admin)
- project_dir="$project_base_dir/consumer/consumer_admin_draft/ConsumerAdmin"
- ;;
-consumer_public_draft|draft.consumer|consumer_public)
- project_dir="$project_base_dir/consumer/consumer_public_draft/ConsumerPublic"
- ;;
-consumer_admin_production|www-admin.consumer|cpa)
- project_dir="$project_base_dir/consumer/consumer_admin_production/ConsumerAdmin"
- ;;
-consumer_public_production|www.consumer|consumer_production)
- project_dir="$project_base_dir/consumer/consumer_public_production/ConsumerPublic"
- ;;
-powerswitch_production|www.powerswitch|powerswitch)
- project_dir="$project_base_dir/consumer/powerswitch/ConsumerPublic"
- ;;
-telme_production|www.telme|telme)
- project_dir="$project_base_dir/consumer/telme/ConsumerPublic"
- ;;
-calc_draft|calculator_draft|calc|calculator)
- project_dir="$project_base_dir/consumer/calculator_draft/PowerswitchCalculator"
- ;;
-calc_production|calc_prod|calculator_production|calculator_prod)
- project_dir="$project_base_dir/consumer/calculator_production/PowerswitchCalculator"
- ;;
-
-learningconnexion|phoenix|tlc)
- #rvm="1.8.7"
- #gemset="phoenix"
- project_dir="$project_base_dir/tlc/Learning-Connexion"
- ;;
-dot|dotfiles)
- rvm="default"
- project_dir="$project_base_dir/dotfiles"
- ;;
-sponsafier|speedracer)
- rvm="1.8.7"
- gemset="sponsafier"
- project_dir="$project_base_dir/sponsafier/speedracer"
- ;;
-
-ham|hamilton|hamiltonwaikat|hamiltonwaikato)
-  project_dir="$project_base_dir/hamiltonwaikato/hamiltonwaikat"
+# ---
+# Personal Projects
+# ---
+blueandwhite|blue|bw)
+  project_dir="$personal/blueandwhite/blueandwhite"
   ;;
-
+cheekymonkey|cheeky|monkey|cm)
+  project_dir="$personal/cheekymonkey/cheekymonkey.co.nz"
+  ;;
+dot|dotfiles)
+  project_dir="$personal/dotfiles"
+  ;;
+hungryfamilyfeedit|hffi|recipe)
+  project_dir="$personal/hungryfamilyfeedit/hungryfamilyfeedit"
+  ;;
+invoicer)
+  project_dir="$personal/invoicer/invoicer"
+  ;;
+mysportsresults|msr)
+  project_dir="$personal/mysportsresults/mysportsresults"
+  ;;
+tracks)
+  project_dir="$personal/tracks/tracks"
+  ;;
+tracks2|t2)
+  project_dir="$personal/tracks2/tracks"
+  ;;
+# ---
+# 3months Projects
+# ---
+cnz|creativenz)
+  project_dir="$three_months/creativenz/creativenz"
+  ;;
+pharmac)
+  project_dir="$three_months/pharmac/pharmac-prototype"
+  ;;
+psnz)
+  project_dir="$three_months/psnz/pharmaceutical-society"
+  ;;
+bankomb|bomb|banking|bankingombudsman)
+  project_dir="$three_months/ombudsman-banking/ombudsman-banking"
+  ;;
+ombudsman|ombudsmen)
+  project_dir="$three_months/ombudsmen/ombudsmen"
+  ;;
+hpa-infohub|infohub)
+  project_dir="$three_months/hpa/health-promotion-agency"
+  ;;
+hpa-living|living)
+  project_dir="$three_months/hpa/hpa-living"
+  ;;
+healthcare|health)
+  project_dir="$three_months/healthcare/Healthcare-NZ"
+  ;;
+labour|etrac)
+  project_dir="$three_months/labour/etrac"
+  ;;
+sportnz)
+  project_dir="$three_months/sportnz/sportnz-assessment-tool"
+  ;;
+horse|horsepower)
+  project_dir="$three_months/horse/horse-power"
+  ;;
+fcf|first|first-click-free|first_click_free)
+  project_dir="$three_months/first-click-free/first_click_free"
+  ;;
+dev|minutes)
+  project_dir="$three_months/dev-meeting-minutes"
+  ;;
+learningconnexion|phoenix|tlc)
+  project_dir="$three_months/tlc/Learning-Connexion"
+  ;;
+ham|hamilton|hamiltonwaikat|hamiltonwaikato)
+  project_dir="$three_months/hamiltonwaikato/hamilton-waikato"
+  ;;
+stc|stc-shop|save)
+  project_dir="$three_months/stc/savethechildren-site"
+  ;;
+nzags|surgeon|surgeons)
+  project_dir="$three_months/nzags/surgeons"
+  ;;
+# Consumer ---
+draft-admin.consumer|consumer_admin|draft-admin|admin)
+  project_dir="$three_months/consumer/consumer_admin_draft/ConsumerAdmin"
+  ;;
+draft.consumer|consumer_public|public)
+  project_dir="$three_months/consumer/consumer_public_draft/ConsumerPublic"
+  ;;
+calculator_draft|calculator|draft-calc|calc)
+  project_dir="$three_months/consumer/calculator_draft/PowerswitchCalculator"
+  ;;
+www-admin.consumer|cpa|admin_production|www-admin|admin_prod)
+  project_dir="$three_months/consumer/consumer_admin_production/ConsumerAdmin"
+  ;;
+consumer_public_production|www.consumer|consumer_production)
+  project_dir="$three_months/consumer/consumer_public_production/ConsumerPublic"
+  ;;
+powerswitch|www.powerswitch|ps)
+  project_dir="$three_months/consumer/powerswitch/powerswitch"
+  ;;
+telme|www.telme)
+  project_dir="$three_months/consumer/telme/telme"
+  ;;
+calc_production|calc_prod|calculator_production|calculator_prod|www-calc|calc_prod)
+  project_dir="$three_months/consumer/calculator_production/PowerswitchCalculator"
+  ;;
+consumer)
+  project_dir="$three_months/consumer/mahout/consumer"
+  ;;
+consumer-knife)
+  project_dir="$three_months/consumer/mahout/consumer-knife"
+  ;;
 esac
 
-if [[ -n $gemset ]]; then
- rvm "${rvm}@${gemset}"
- echo "Using gemset: $gemset"
-#else
-# rvm $rvm
-fi
 cd $project_dir
 
