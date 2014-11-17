@@ -22,10 +22,22 @@ check_status()
     mysql_status=$RUNNING
   fi
 
-  if [[ `ps -elf | grep memcached | grep -v 'grep memcached' | wc -l` == '       1' ]]; then
+  if [[ `ps -elf 2>/dev/null | grep memcached | grep -v 'grep memcached' | wc -l` == '       1' ]]; then
     memcached_status=$RUNNING
   else
     memcached_status=$STOPPED
+  fi
+
+  if [[ `ps -elf 2>/dev/null | grep redis-server | grep -v 'grep redis-server' | wc -l` == '       1' ]]; then
+    redis_status=$RUNNING
+  else
+    redis_status=$STOPPED
+  fi
+
+  if [[ `ps awx 2>/dev/null | grep elasticsearch | grep -v 'grep elasticsearch' | wc -l` == '       1' ]]; then
+    elastic_status=$RUNNING
+  else
+    elastic_status=$STOPPED
   fi
 }
 
@@ -56,12 +68,32 @@ memcached_message()
   fi
 }
 
+redis_message()
+{
+  if [[ $redis_status == $RUNNING ]]; then
+    echo -e $RUNNING_MESSAGE
+  else
+    echo -e $STOPPED_MESSAGE
+  fi
+}
+
+elastic_message()
+{
+  if [[ $elastic_status == $RUNNING ]]; then
+    echo -e $RUNNING_MESSAGE
+  else
+    echo -e $STOPPED_MESSAGE
+  fi
+}
+
 show_status()
 {
   check_status
-  echo -e "  postgres  is `postgres_message`"
-  echo -e "  mysql     is `mysql_message`"
-  echo -e "  memcached is `memcached_message`"
+  echo -e "  `postgres_message` postgres"
+  echo -e "  `mysql_message` mysql"
+  echo -e "  `memcached_message` memcached"
+  echo -e "  `redis_message` redis"
+  echo -e "  `elastic_message` elastic search"
 }
 
 echo "Daemons status:"
@@ -87,7 +119,18 @@ else
   echo "  3 - stop memcached server"
 fi
 
-echo ""
+if [[ $redis_status == $STOPPED ]]; then
+  echo "  4 - start redis server"
+else
+  echo "  4 - stop redis server"
+fi
+
+if [[ $elastic_status == $STOPPED ]]; then
+  echo "  5 - start elastic search"
+else
+  echo "  5 - stop elastic search"
+fi
+
 echo -n "> "
 read opt
 
@@ -121,3 +164,25 @@ if [[ $opt == 3 ]]; then
   show_status
 fi
 
+if [[ $opt == 4 ]]; then
+  if [[ $redis_status == $STOPPED ]]; then
+    redis-server /usr/local/etc/redis.conf &
+  else
+    killall redis-server
+  fi
+  sleep 1
+  show_status
+fi
+
+if [[ $opt == 5 ]]; then
+  if [[ $elastic_status == $STOPPED ]]; then
+    #elasticsearch -D es.config=/usr/local/opt/elasticsearch/config/elasticsearch.yml -p /tmp/elasticsearch.pid
+    elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml > /tmp/elasticsearch.log &
+  else
+    e=`ps awx | grep elasticsearch | grep -v grep | cut -c-6`
+    kill -HUP $e
+    #killall elasticsearch
+  fi
+  sleep 1
+  show_status
+fi
