@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # Run this from inside the dotfiles dir
 Dir.glob(".[a-z]*").each do |file_name|
-  unless file_name == '.git'
+  unless ['.git', '.gitignore'].include? file_name
     rm = `rm -rf ~/#{file_name}`
     ln = `ln -s ~/Projects/dotfiles/#{file_name} ~/`
   end
