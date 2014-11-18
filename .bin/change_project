@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
+# Shortcuts to my various projects. Yes the name is long and clunky, I usually alias it to 'p'
+
 project_base_dir="$HOME/Projects"
 
 personal="$project_base_dir"
 three_months="$project_base_dir/3months"
 
-# default values == hottest project
-project_dir="$three_months/consumer/mahout/consumer"
+default_project_dir="$three_months/consumer/mahout/consumer"
 
 case `echo $1 | tr "[A-Z]" "[a-z]"` in
 # ---
@@ -39,6 +40,9 @@ tracks2|t2)
 # ---
 # 3months Projects
 # ---
+skip|tiny|adventures)
+  project_dir="$three_months/skip/tiny-adventures"
+  ;;
 cnz|creativenz)
   project_dir="$three_months/creativenz/creativenz"
   ;;
@@ -121,7 +125,19 @@ consumer)
 consumer-knife)
   project_dir="$three_months/consumer/mahout/consumer-knife"
   ;;
+*)
+  project_dir=$default_project_dir
+  ;;
 esac
 
-cd $project_dir
+if [ -d $project_dir ]; then
+  if [ "$project_dir" == "$default_project_dir" ]; then
+    #echo "** default project **"
+    echo -e "\033[32m** default project **\033[0m"
+  fi
+  cd $project_dir
+else
+  #echo "Cannot find project dir for \"$1\", tried: $project_dir"
+  echo -e "\033[31mCannot find project dir for \"$1\", tried: $project_dir\033[0m"
+fi
 
