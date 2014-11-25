@@ -40,6 +40,9 @@ tracks2|t2)
 # ---
 # 3months Projects
 # ---
+sis|nzsis)
+  project_dir="$three_months/nzsis/nzsis"
+  ;;
 skip|tiny|adventures)
   project_dir="$three_months/skip/tiny-adventures"
   ;;
@@ -93,6 +96,9 @@ stc|stc-shop|save)
   ;;
 nzags|surgeon|surgeons)
   project_dir="$three_months/nzags/surgeons"
+  ;;
+readme|readme-templates)
+  project_dir="$three_months/readme-templates/readme-templates"
   ;;
 # Consumer ---
 draft-admin.consumer|consumer_admin|draft-admin|admin)

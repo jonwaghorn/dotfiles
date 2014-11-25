@@ -19,17 +19,16 @@ export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Ho
 function parse_git_branch {
   git branch 2> /dev/null | grep '^\*' | cut -c3-
 }
+function ruby_version {
+  ruby --version | cut -d' ' -f2
+}
 
 # Set command prompt
 #export PS1="\u@\h:\w\n$ "
-#export PS1="\u@\h(\$(~/.rvm/bin/rvm-prompt v g):\$(parse_git_branch)):\w\n$ "
-export PS1="\u@\h(\e[1;34m\$(~/.rvm/bin/rvm-prompt v g)\e[0m:\e[0;32m\$(parse_git_branch)\e[0m):\w\n$ "
-
-# rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+export PS1="\u@\h(\e[1;34m\$(ruby_version)\e[0m:\e[0;32m\$(parse_git_branch)\e[0m):\w\n$ "
 
 # rbenv
-#eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export CONSUMER_PUBLIC_PATH=$HOME/Projects/3months/consumer/consumer_public_draft/ConsumerPublic
 export CONSUMER_ADMIN_PATH=$HOME/Projects/3months/consumer/consumer_admin_draft/ConsumerAdmin
@@ -43,4 +42,5 @@ alias rm='rm -i'
 alias f="find config db app lib test spec features public/stylesheets -name \* | grep -vw svn | xargs grep $*"
 alias gs='git status'
 alias p='source change_project $*'
+alias be='bundle exec'
 
