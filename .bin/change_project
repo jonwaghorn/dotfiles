@@ -5,9 +5,10 @@
 project_base_dir="$HOME/Projects"
 
 personal="$project_base_dir"
-three_months="$project_base_dir/3months"
+crssoftware="$project_base_dir/crs"
+misc_projects="$project_base_dir/miscellaneous"
 
-default_project_dir="$three_months/consumer/mahout/consumer"
+default_project_dir="$crssoftware/core/cmr-core"
 
 case `echo $1 | tr "[A-Z]" "[a-z]"` in
 # ---
@@ -37,100 +38,33 @@ tracks)
 tracks2|t2)
   project_dir="$personal/tracks2/tracks"
   ;;
+
 # ---
-# 3months Projects
+# CRS Projects
 # ---
-sis|nzsis)
-  project_dir="$three_months/nzsis/nzsis"
+core|cmr-core)
+  project_dir="$crssoftware/crs/core/cmr-core"
   ;;
-skip|tiny|adventures)
-  project_dir="$three_months/skip/tiny-adventures"
+frontend|core-frontend|cmr-core-frontend)
+  project_dir="$crssoftware/crs/frontend/cmr-core-frontend"
   ;;
-cnz|creativenz)
-  project_dir="$three_months/creativenz/creativenz"
+core.rb|cmr-core.rb)
+  project_dir="$crssoftware/crs/core.rb/cmr-core.rb"
   ;;
-pharmac)
-  project_dir="$three_months/pharmac/pharmac-prototype"
+connector|cmr-connector)
+  project_dir="$crssoftware/crs/connnector/cmr-connnector"
   ;;
-psnz)
-  project_dir="$three_months/psnz/pharmaceutical-society"
+proxy|cmr-proxy)
+  project_dir="$crssoftware/crs/proxy/cmr-proxy"
   ;;
-bankomb|bomb|banking|bankingombudsman)
-  project_dir="$three_months/ombudsman-banking/ombudsman-banking"
+
+# ---
+# Miscellaneous Projects
+# ---
+uncharted)
+  project_dir="$misc_projects/startupweekendhealth/uncharted"
   ;;
-ombudsman|ombudsmen)
-  project_dir="$three_months/ombudsmen/ombudsmen"
-  ;;
-hpa-infohub|infohub)
-  project_dir="$three_months/hpa/health-promotion-agency"
-  ;;
-hpa-living|living)
-  project_dir="$three_months/hpa/hpa-living"
-  ;;
-healthcare|health)
-  project_dir="$three_months/healthcare/Healthcare-NZ"
-  ;;
-labour|etrac)
-  project_dir="$three_months/labour/etrac"
-  ;;
-sportnz)
-  project_dir="$three_months/sportnz/sportnz-assessment-tool"
-  ;;
-horse|horsepower)
-  project_dir="$three_months/horse/horse-power"
-  ;;
-fcf|first|first-click-free|first_click_free)
-  project_dir="$three_months/first-click-free/first_click_free"
-  ;;
-dev|minutes)
-  project_dir="$three_months/dev-meeting-minutes"
-  ;;
-learningconnexion|phoenix|tlc)
-  project_dir="$three_months/tlc/Learning-Connexion"
-  ;;
-ham|hamilton|hamiltonwaikat|hamiltonwaikato)
-  project_dir="$three_months/hamiltonwaikato/hamilton-waikato"
-  ;;
-stc|stc-shop|save)
-  project_dir="$three_months/stc/savethechildren-site"
-  ;;
-nzags|surgeon|surgeons)
-  project_dir="$three_months/nzags/surgeons"
-  ;;
-readme|readme-templates)
-  project_dir="$three_months/readme-templates/readme-templates"
-  ;;
-# Consumer ---
-draft-admin.consumer|consumer_admin|draft-admin|admin)
-  project_dir="$three_months/consumer/consumer_admin_draft/ConsumerAdmin"
-  ;;
-draft.consumer|consumer_public|public)
-  project_dir="$three_months/consumer/consumer_public_draft/ConsumerPublic"
-  ;;
-calculator_draft|calculator|draft-calc|calc)
-  project_dir="$three_months/consumer/calculator_draft/PowerswitchCalculator"
-  ;;
-www-admin.consumer|cpa|admin_production|www-admin|admin_prod)
-  project_dir="$three_months/consumer/consumer_admin_production/ConsumerAdmin"
-  ;;
-consumer_public_production|www.consumer|consumer_production)
-  project_dir="$three_months/consumer/consumer_public_production/ConsumerPublic"
-  ;;
-powerswitch|www.powerswitch|ps)
-  project_dir="$three_months/consumer/powerswitch/powerswitch"
-  ;;
-telme|www.telme)
-  project_dir="$three_months/consumer/telme/telme"
-  ;;
-calc_production|calc_prod|calculator_production|calculator_prod|www-calc|calc_prod)
-  project_dir="$three_months/consumer/calculator_production/PowerswitchCalculator"
-  ;;
-consumer)
-  project_dir="$three_months/consumer/mahout/consumer"
-  ;;
-consumer-knife)
-  project_dir="$three_months/consumer/mahout/consumer-knife"
-  ;;
+
 *)
   project_dir=$default_project_dir
   ;;

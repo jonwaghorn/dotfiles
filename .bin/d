@@ -171,7 +171,7 @@ if [[ $opt == 4 ]]; then
     redis-server /usr/local/etc/redis.conf &
   else
     #killall redis-server
-    kill -9 `ps -e | grep redis-server | grep -v grep | cut -f1 -d' '`
+    kill -9 `ps -e | grep redis-server | grep -v grep | cut -c-6`
   fi
   sleep 1
   show_status
@@ -180,7 +180,9 @@ fi
 if [[ $opt == 5 ]]; then
   if [[ $elastic_status == $STOPPED ]]; then
     #elasticsearch -D es.config=/usr/local/opt/elasticsearch/config/elasticsearch.yml -p /tmp/elasticsearch.pid
-    elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml > /tmp/elasticsearch.log &
+    # brew info elasticsearch
+    # elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml > /tmp/elasticsearch.log &
+    elasticsearch > /tmp/elasticsearch.log &
   else
     e=`ps awx | grep elasticsearch | grep -v grep | cut -c-6`
     kill -HUP $e
@@ -189,3 +191,4 @@ if [[ $opt == 5 ]]; then
   sleep 1
   show_status
 fi
+

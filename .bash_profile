@@ -35,7 +35,7 @@ export CONSUMER_ADMIN_PATH=$HOME/Projects/3months/consumer/consumer_admin_draft/
 
 # Aliases
 alias h='history'
-alias ls='ls -FG'
+alias ls='ls -FGh'
 alias la='ls -a'
 alias ll='ls -l'
 alias rm='rm -i'
