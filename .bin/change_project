@@ -43,19 +43,22 @@ tracks2|t2)
 # CRS Projects
 # ---
 core|cmr-core)
-  project_dir="$crssoftware/crs/core/cmr-core"
+  project_dir="$crssoftware/core/cmr-core"
   ;;
 frontend|core-frontend|cmr-core-frontend)
-  project_dir="$crssoftware/crs/frontend/cmr-core-frontend"
+  project_dir="$crssoftware/frontend/cmr-core-frontend"
   ;;
 core.rb|cmr-core.rb)
-  project_dir="$crssoftware/crs/core.rb/cmr-core.rb"
+  project_dir="$crssoftware/core.rb/cmr-core.rb"
   ;;
-connector|cmr-connector)
-  project_dir="$crssoftware/crs/connnector/cmr-connnector"
+connector|connect|cmr-connector)
+  project_dir="$crssoftware/connector/cmr-connector"
   ;;
 proxy|cmr-proxy)
-  project_dir="$crssoftware/crs/proxy/cmr-proxy"
+  project_dir="$crssoftware/proxy/cmr-proxy"
+  ;;
+corp|corporate|crs-www|crs-corporate-www)
+  project_dir="$crssoftware/corporate/crs-corporate-www"
   ;;
 
 # ---
@@ -71,7 +74,7 @@ uncharted)
 esac
 
 if [ -d $project_dir ]; then
-  if [ "$project_dir" == "$default_project_dir" ]; then
+  if [ "$project_dir" = "$default_project_dir" ]; then
     #echo "** default project **"
     echo -e "\033[32m** default project **\033[0m"
   fi
