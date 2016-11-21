@@ -45,7 +45,7 @@ tracks2|t2)
 core|cmr-core)
   project_dir="$crssoftware/core/cmr-core"
   ;;
-frontend|core-frontend|cmr-core-frontend)
+frontend|front-end|core-frontend|cmr-core-frontend)
   project_dir="$crssoftware/frontend/cmr-core-frontend"
   ;;
 core.rb|cmr-core.rb)
