@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+
+require 'time'
+
+# Check testing envs for what's deployed. Hacky.
+#
+# Big caveat ==> uses your local repo for info so
+#                `git fetch` to be as up-to-date
+#                as possible.
+#            ==> run this in cmr-core and
+#                cmr-core-frontend each, at least
+#
+# Based on the following git command:
+#   git log -n1 origin/deploy/jersey
+
+ENVS = %w(hereford angus shorthorn highland jersey friesian).freeze
+
+data = []
+
+ENVS.each do |env|
+  cmd = "git log -n1 --date=iso-strict --no-merges origin/deploy/#{env}"
+  parts = `#{cmd}`.split("\n")
+
+  sha = parts[0].split(' ').last
+  author = parts[1].split(':').last.strip
+  date = Time.parse(parts[2].split(':')[1..-1].join(':').strip)
+  message = parts[4].strip
+
+  data << [date, "#{env}:  	#{date} #{sha} #{author} #{message}"]
+end
+
+data.sort! { |a, b| b[0] <=> a[0] }
+
+data.each { |row| puts row[1] }
+
