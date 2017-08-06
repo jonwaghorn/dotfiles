@@ -73,4 +73,3 @@ else
   #echo "Cannot find project dir for \"$1\", tried: $project_dir"
   echo -e "\033[31mCannot find project dir for \"$1\", tried: $project_dir\033[0m"
 fi
-

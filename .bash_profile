@@ -18,6 +18,7 @@ export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Ho
 
 function parse_git_branch {
   git branch 2> /dev/null | grep '^\*' | cut -c3-
+#  git rev-parse --abbrev-ref HEAD
 }
 function ruby_version {
   ruby --version | cut -d' ' -f2
@@ -37,6 +38,15 @@ alias la='ls -a'
 alias ll='ls -l'
 alias rm='rm -i'
 alias gs='git status'
+alias gst='git status'
 alias p='source change_project $*'
 alias be='bundle exec'
 
+
+export NVM_DIR="/Users/jon/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Setting PATH for Python 2.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
