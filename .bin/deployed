@@ -13,7 +13,8 @@ require 'time'
 # Based on the following git command:
 #   git log -n1 origin/deploy/jersey
 
-ENVS = %w(hereford angus shorthorn highland jersey friesian).freeze
+ENVS = %w(angus ankole-watusi beefalo galloway hereford highland jersey shorthorn wagyu).freeze
+#ENVS = %w(angus ankole-watusi beefalo friesian galloway hereford highland jersey shorthorn staging uat wagyu).freeze
 
 data = []
 

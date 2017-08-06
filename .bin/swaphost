@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Exchanges the host ip addresses in ~/.ssh/config for lines tagged ENV-swap
+
+if [ "$1" = "" ]; then
+  echo 'Missing env name as param'
+  exit 1
+fi
+
+CONFIG_FILE="$HOME/.ssh/config"
+# CONFIG_FILE="config"
+CONFIG_FILE_BACKUP="$CONFIG_FILE.backup"
+TEMP_FILE="$CONFIG_FILE.work"
+
+cp -p $CONFIG_FILE $CONFIG_FILE_BACKUP
+
+swap_line=`grep -n $1-swap $CONFIG_FILE | cut -d: -f1`
+if [ "$swap_line" = "" ]; then
+  echo "Cannot find swap line \"$1-swap\" in file $CONFIG_FILE"
+  exit 2
+fi
+total_lines=`wc -l $CONFIG_FILE | cut -c-8`
+line_one=`head -n $(($swap_line + 1)) $CONFIG_FILE | tail -1`
+line_two=`head -n $(($swap_line + 2)) $CONFIG_FILE | tail -1`
+
+head -n $swap_line $CONFIG_FILE > $TEMP_FILE
+echo "$line_one" | sed -e 's/  /  #/' | sed -e 's/##//' >> $TEMP_FILE
+echo "$line_two" | sed -e 's/  /  #/' | sed -e 's/##//' >> $TEMP_FILE
+echo "$line_one" | sed -e 's/  /  #/' | sed -e 's/##//'
+echo "$line_two" | sed -e 's/  /  #/' | sed -e 's/##//'
+tail -n $(($total_lines - $swap_line -2)) $CONFIG_FILE >> $TEMP_FILE
+
+mv $TEMP_FILE $CONFIG_FILE

@@ -30,16 +30,12 @@ export PS1="\u@\h(\e[1;34m\$(ruby_version)\e[0m:\e[0;32m\$(parse_git_branch)\e[0
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-export CONSUMER_PUBLIC_PATH=$HOME/Projects/3months/consumer/consumer_public_draft/ConsumerPublic
-export CONSUMER_ADMIN_PATH=$HOME/Projects/3months/consumer/consumer_admin_draft/ConsumerAdmin
-
 # Aliases
 alias h='history'
 alias ls='ls -FGh'
 alias la='ls -a'
 alias ll='ls -l'
 alias rm='rm -i'
-alias f="find config db app lib test spec features public/stylesheets -name \* | grep -vw svn | xargs grep $*"
 alias gs='git status'
 alias p='source change_project $*'
 alias be='bundle exec'

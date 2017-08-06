@@ -11,9 +11,7 @@ misc_projects="$project_base_dir/miscellaneous"
 default_project_dir="$crssoftware/core/cmr-core"
 
 case `echo $1 | tr "[A-Z]" "[a-z]"` in
-# ---
-# Personal Projects
-# ---
+### Personal Projects ###)
 blueandwhite|blue|bw)
   project_dir="$personal/blueandwhite/blueandwhite"
   ;;
@@ -39,45 +37,37 @@ tracks2|t2)
   project_dir="$personal/tracks2/tracks"
   ;;
 
-# ---
-# CRS Projects
-# ---
-core|cmr-core)
-  project_dir="$crssoftware/core/cmr-core"
+### CRS Projects ###)
+cmr-web|cmr)
+  project_dir="$crssoftware/cmr-web/cmr-web"
   ;;
-frontend|front-end|core-frontend|cmr-core-frontend)
-  project_dir="$crssoftware/frontend/cmr-core-frontend"
-  ;;
-core.rb|cmr-core.rb)
-  project_dir="$crssoftware/core.rb/cmr-core.rb"
-  ;;
-connector|connect|cmr-connector)
-  project_dir="$crssoftware/connector/cmr-connector"
-  ;;
-proxy|cmr-proxy)
-  project_dir="$crssoftware/proxy/cmr-proxy"
+cmr-terraform|terraform|terra)
+  project_dir="$crssoftware/cmr-terraform/cmr-terraform"
   ;;
 corp|corporate|crs-www|crs-corporate-www)
   project_dir="$crssoftware/corporate/crs-corporate-www"
   ;;
 
-# ---
-# Miscellaneous Projects
-# ---
+### Miscellaneous Projects ###)
 uncharted)
   project_dir="$misc_projects/startupweekendhealth/uncharted"
   ;;
 
-*)
+### Funky stuff ###)
+default)
   project_dir=$default_project_dir
+  ;;
+
+*)
+  grep ')$' `which $0` | grep -v '*' | cut -d ')' -f1 | tr '|' ' '
   ;;
 esac
 
 if [ -d $project_dir ]; then
-  if [ "$project_dir" = "$default_project_dir" ]; then
+#  if [ "$project_dir" = "$default_project_dir" ]; then
     #echo "** default project **"
-    echo -e "\033[32m** default project **\033[0m"
-  fi
+#    echo -e "\033[32m** default project **\033[0m"
+#  fi
   cd $project_dir
 else
   #echo "Cannot find project dir for \"$1\", tried: $project_dir"
