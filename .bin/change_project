@@ -8,7 +8,7 @@ personal="$project_base_dir"
 crssoftware="$project_base_dir/crs"
 misc_projects="$project_base_dir/miscellaneous"
 
-default_project_dir="$crssoftware/core/cmr-core"
+default_project_dir="$crssoftware/core/cmr-web"
 
 case `echo $1 | tr "[A-Z]" "[a-z]"` in
 ### Personal Projects ###)
@@ -38,11 +38,20 @@ tracks2|t2)
   ;;
 
 ### CRS Projects ###)
-cmr-web|cmr)
+cmr-web|cmr|cmf)
   project_dir="$crssoftware/cmr-web/cmr-web"
   ;;
-cmr-terraform|terraform|terra)
-  project_dir="$crssoftware/cmr-terraform/cmr-terraform"
+cmf-web-terraform-old|terraform-old|terra-old)
+  project_dir="$crssoftware/cmf-web-terraform/cmf-web-terraform"
+  ;;
+cmf-web-terraform|terraform|terra)
+  project_dir="$crssoftware/cmf-terraform-restructure"
+  ;;
+cmr-web.wiki|wiki)
+  project_dir="$crssoftware/cmr-web/cmr-web.wiki"
+  ;;
+vivarium|viv)
+  project_dir="$crssoftware/vivarium"
   ;;
 corp|corporate|crs-www|crs-corporate-www)
   project_dir="$crssoftware/corporate/crs-corporate-www"
